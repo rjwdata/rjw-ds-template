@@ -1,0 +1,96 @@
+base:
+  project:
+  random_state: 67
+  target_col: 
+
+data_source:
+  batch_files: 
+
+
+data_preparation:
+  training_db: 
+  training_db_dir:
+  schema_training: 
+  good_validated_raw_dir: 
+  bad_validated_raw_dir: 
+  TrainingArchiveBadData: 
+  Training_FileFromDB: 
+  master_csv: 
+
+pred_data_preparation:
+  prediction_db: 
+  prediction_db_dir: 
+  schema_prediction: 
+  good_validated_raw_dir: 
+  bad_validated_raw_dir: 
+  PredictionArchiveBadData: 
+  Prediction_FileFromDB:
+  master_csv: 
+  Prediction_Output_File: 
+
+
+saved_models:
+  model_dir: models
+
+data_preprocessing:
+  preprocessed_data_dir: 
+  null_values_csv: 
+
+  preprocessed_data_dir_pred: 
+
+
+  KNNImputer: 
+    n_neighbors: 3 
+    weights: uniform
+    missing_values: nan
+
+  KMeansClustering:
+    init: k-means++
+    n_cluster_max: 11
+    KneeLocator: 
+      curve: convex
+      direction: decreasing
+    
+
+artifacts_dir: 
+  general: general
+  mlflow: mlflow_artifacts
+  
+training:
+  random_forest:
+    cv: 5
+    verbose: 3
+    param_grid:
+      n_estimators: 
+        - 10
+        - 50
+        - 100
+        - 130 
+      criterion: 
+        - gini
+        - entropy
+      max_depth: 
+        - 2
+        - 4
+      max_features: 
+        - auto
+        - log2
+  xg_boost:
+    cv: 5
+    verbose: 3
+    param_grid:
+      learning_rate: 
+        - 0.5
+        - 0.1
+        - 0.01
+        - 0.001
+      max_depth: 
+        - 3
+        - 5
+        - 10
+        - 20
+      n_estimators: 
+        - 10
+        - 50
+        - 100
+        - 200
