@@ -6,27 +6,11 @@ The purpose of this repo is to provide a machine learning template for classific
 
 This template is built on the data science framework purposed by Hadley Wickham in R for Data Science. [[1]](#1)  The template guides the machine learning architech through the different stages of the pipeline.  
 
-| Stage                            | Components                                         | Outputs                                                 |
-| -------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
-| Business and Data Understanding  |Data Ingestion                                      |
-|                                  |Exploratory Data Analysis                           | 
-|                                  |Data Quality Report                                 |
-
-Data Quality Test
-
-Clean Data      |
-| Model Development and Evaluation | Data Transformation
-
-Model Selection
-
-Model Tuning | Train/Test Data Sets
-
-Data Transformer File
-
-Model File |
-| Communication                    | Model Deployment                                   | End User Dashboard
-
-Model Card                          |
+| Stage                            | Components                                             | Outputs                                                     |
+|----------------------------------|--------------------------------------------------------|-------------------------------------------------------------|
+| Business and Data Understanding  | Data Ingestion<br>Exploratory Data Analysis            | Data Quality Report<br>Data Quality Test<br>Clean Dataset   |
+| Model Development and Evaluation | Data Transformation<br>Model Selection<br>Model Tuning | Train/Test Data Sets<br>Data Transformer File<br>Model File |
+| Communication                    | Model Deployment                                       | End User Dashboard<br>Model Card                            |
 
 
 ## References
