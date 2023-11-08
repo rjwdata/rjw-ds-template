@@ -8,9 +8,9 @@ This template is built on the data science framework purposed by Hadley Wickham 
 
 | Stage                            | Components                                         | Outputs                                                 |
 | -------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
-| Business and Data Understanding  | Data Ingestion
-
-Exploratory Data Analysis          | Data Quality Report
+| Business and Data Understanding  |Data Ingestion                                      |
+|                                  |Exploratory Data Analysis                           | 
+|                                  |Data Quality Report                                 |
 
 Data Quality Test
 
