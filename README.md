@@ -43,8 +43,7 @@ The data needs to be transformed in order to be modeled.  The base data transfor
 ```{python}
 def get_data_transformer_object(self, train_data):
 '''
-This function is responsible for data trnasformation
-        
+This function is responsible for data trnasformation        
 '''
   try:
       numeric_features = train_data.select_dtypes(exclude = 'object').columns
