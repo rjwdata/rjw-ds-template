@@ -41,39 +41,34 @@ Data Transformation
 The data needs to be transformed in order to be modeled.  The base data transformation is imputation for missing values, creation of dummy variables for categorical variables, and centering and scaling of numerical/interger values.  The code for these transformations can be found in `src/components/data_transformation.py`.  Depending of the data being modeled, this may need to be updated.  
 
 ```{python}
-    def get_data_transformer_object(self, train_data):
-        '''
-        This function is responsible for data trnasformation
+def get_data_transformer_object(self, train_data):
+'''
+This function is responsible for data trnasformation
         
-        '''
-        try:
-            numeric_features = train_data.select_dtypes(exclude = 'object').columns
-            categorical_features = train_data.select_dtypes(include = 'object').columns
+'''
+  try:
+      numeric_features = train_data.select_dtypes(exclude = 'object').columns
+      categorical_features = train_data.select_dtypes(include = 'object').columns
 
-            num_pipeline= Pipeline(
-                steps=[
+      num_pipeline= Pipeline(steps=[
                 ("imputer",SimpleImputer(strategy="median")),
                 ("scaler",StandardScaler())
                 ]
             )
 
-            cat_pipeline=Pipeline(
-                steps=[
+      cat_pipeline=Pipeline(steps=[
                 ("one_hot_encoder",OneHotEncoder(handle_unknown="ignore"))
                 ]
-
             )
 
-            logging.info(f"Categorical columns: {categorical_features}")
-            logging.info(f"Numerical columns: {numeric_features}")
+      logging.info(f"Categorical columns: {categorical_features}")
+      logging.info(f"Numerical columns: {numeric_features}")
 
-            preprocessor=ColumnTransformer(
-                [
+      preprocessor=ColumnTransformer([
                 ("num_pipeline",num_pipeline, selector(dtype_exclude="object")),
                 ("cat_pipelines",cat_pipeline, selector(dtype_include="object"))
                 ]
             )
-
             return preprocessor
 ```
 
