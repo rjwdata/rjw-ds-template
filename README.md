@@ -10,7 +10,7 @@ This template is built on the data science framework purposed by Hadley Wickham 
 |----------------------------------|--------------------------------------------------------|-------------------------------------------------------------|
 | Business and Data Understanding  | Data Ingestion<br>Exploratory Data Analysis            | Data Quality Report<br>Data Quality Test<br>Clean Dataset   |
 | Model Development and Evaluation | Data Transformation<br>Model Selection<br>Model Tuning | Train/Test Data Sets<br>Data Transformer File<br>Model File |
-| Model Deployment and Monitoring  | Model Deployment                                       | End User Dashboard<br>Model Card                            |
+| Model Deployment and Monitoring  | Model Deployment                                       | End User Dashboard<br>Model Card<br>Logs                            |
 
 ## Business and Data Understanding
 Data Ingestion
@@ -209,6 +209,37 @@ def predict(self,data):
             probs =model.predict_proba(data_scaled)
 
             return preds, probs
+```
+
+### Communication
+- Examples of Data Quality Report, Data Test, and Model Card
+- Logs
+
+```
+[ 2023-11-04 13:56:31,224 ] 80 root - INFO - Entered the data ingestion method or component
+[ 2023-11-04 13:56:31,291 ] 84 root - INFO - Read the data set as dataframe
+[ 2023-11-04 13:56:31,291 ] 87 root - INFO - Removed spaces and characters from column names
+[ 2023-11-04 13:56:31,291 ] 91 root - INFO - creating data quality report
+[ 2023-11-04 13:56:50,674 ] 98 root - INFO - creating data quality tests
+[ 2023-11-04 13:57:09,374 ] 110 root - INFO - train test split initiated
+[ 2023-11-04 13:57:09,744 ] 116 root - INFO - train test split completed
+[ 2023-11-04 13:57:09,748 ] 67 root - INFO - Read train and test data started
+[ 2023-11-04 13:57:09,837 ] 71 root - INFO - Read train and test data completed data/raw/train/train.csv
+[ 2023-11-04 13:57:09,837 ] 73 root - INFO - Extract input and target features started
+[ 2023-11-04 13:57:09,840 ] 82 root - INFO - Extract input and target features completed
+[ 2023-11-04 13:57:09,840 ] 84 root - INFO - Obtaining preprocessing object
+[ 2023-11-04 13:57:09,847 ] 49 root - INFO - Categorical columns: Index(['male', 'race_ethnicity', 'frpl', 'iep', 'ell', 'ever_alternative','ap_ever_take_class'],dtype='object')
+[ 2023-11-04 13:57:09,847 ] 50 root - INFO - Numerical columns: Index(['math_ss', 'read_ss', 'pct_days_absent', 'gpa', 'scale_score_11_eng','scale_score_11_math', 'scale_score_11_read', 'scale_score_11_comp'],dtype='object')
+[ 2023-11-04 13:57:09,847 ] 87 root - INFO - Applying preprocessing object on training dataframe and testing dataframe.
+[ 2023-11-04 13:57:09,983 ] 99 root - INFO - Saved preprocessing object.
+[ 2023-11-04 13:57:09,995 ] 35 root - INFO - Split training and test input data
+[ 2023-11-04 13:57:22,958 ] 79 root - INFO - Logistic Regression with an accuracy 0.8556048729813958 0.0005025863647460938 seconds
+[ 2023-11-04 13:57:28,624 ] 79 root - INFO - Support Vector Machines with an accuracy 0.8534328076305601 in 0.0 seconds
+[ 2023-11-04 13:57:47,681 ] 79 root - INFO - Decision Trees with an accuracy 0.8451222967230144 in 0.0 seconds
+[ 2023-11-04 14:02:40,161 ] 79 root - INFO - Random Forest with an accuracy 0.9050901879308717 in 0.0 seconds
+[ 2023-11-04 14:02:41,448 ] 79 root - INFO - Naive Bayes with an accuracy 0.7476626688072529 in 0.0 seconds
+[ 2023-11-04 14:02:52,333 ] 79 root - INFO - K-Nearest Neighbor with an accuracy 0.8725092076683351 in 0.0 seconds
+[ 2023-11-04 14:03:35,291 ] 79 root - INFO - xgboost with an accuracy 0.9060345641703654 in 0.0 seconds
 ```
 
 ## References
